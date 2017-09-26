@@ -1,0 +1,51 @@
+{
+    "name":"contao-bootstrap/card",
+    "description":"Bootstrap card templates for Contao CMS",
+    "keywords":["bootstrap", "card", "contao"],
+    "type":"contao-bundle",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"David Molineus",
+            "email":"mail@netzmacht.de",
+            "homepage":"https://netzmacht.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "email":"mail@netzmacht.de",
+        "issues":"https://github.com/contao-bootstrap/card/issues",
+        "wiki":"http://contao-bootstrap.netzmacht.de",
+        "source":"https://github.com/contao-bootstrap/card"
+    },
+    "conflict": {
+        "netzmacht/contao-bootstrap": "*"
+    },
+    "require":{
+        "php":">=7.1",
+        "contao/core-bundle":"~4.4",
+        "contao-bootstrap/core": "~2.0@alpha"
+    },
+    "require-dev": {
+        "phpcq/all-tasks": "^1.2",
+        "contao/manager-plugin": "^2.1"
+    },
+    "autoload": {
+        "psr-4": { "ContaoBootstrap\\Card\\": "src/" }
+    },
+    "extra":{
+        "contao-manager-plugin": "ContaoBootstrap\\Card\\ContaoManager\\Plugin",
+        "contao": {
+            "transifex": {
+                "project": "contao-bootstrap",
+                "prefix": "card-",
+                "languages_cto": "src/Resources/contao/languages",
+                "languages_tx": ".tx"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev",
+            "dev-develop": "1.1.x-dev"
+        }
+    }
+}

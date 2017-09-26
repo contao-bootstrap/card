@@ -1,0 +1,17 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <?php if (empty($this->articles)): ?>
+    <p class="empty"><?= $this->empty ?></p>
+  <?php else: ?>
+    <div class="card-deck">
+    <?php foreach ($this->articles as $article): ?>
+              <?= $article ?>
+    <?php endforeach; ?>
+    </div>
+    <?= $this->pagination ?>
+
+  <?php endif; ?>
+
+<?php $this->endblock(); ?>

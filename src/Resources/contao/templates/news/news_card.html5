@@ -1,0 +1,45 @@
+<div class="card layout_latest arc_$this->archive->id ?> block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
+
+    <?php $this->block('image') ?>
+    <?php if ($this->addImage): ?>
+        <div class="card-img-bottom">
+            <?php $this->insert(
+                'image',
+                ContaoBootstrap\Core\Util\ArrayUtil::merge(
+                    $this->arrData,
+                    ['picture' => ['attributes' => 'class="img-fluid"']]
+                )
+            ); ?>
+        </div>
+    <?php endif; ?>
+    <?php $this->endblock() ?>
+
+    <div class="card-body">
+        <?php $this->block('title') ?>
+        <h2 class="card-title" itemprop="name"><?= $this->linkHeadline ?></h2>
+        <?php $this->endblock() ?>
+
+        <?php $this->block('subtitle') ?>
+        <?php if ($this->hasMetaFields): ?>
+            <p class="card-subtitle info">
+                <time datetime="<?= $this->datetime ?>"
+                      itemprop="datePublished"><?= $this->date ?></time> <?= $this->author ?> <?= $this->commentCount ?>
+            </p>
+        <?php endif; ?>
+        <?php $this->endblock() ?>
+
+        <?php $this->block('text') ?>
+        <div class="card-text" itemprop="description">
+            <?= $this->teaser ?>
+        </div>
+        <?php $this->endblock() ?>
+
+        <?php $this->block('links') ?>
+        <?php if ($this->hasText || $this->hasTeaser): ?>
+            <a href="<?= $this->link ?>" title="<?= $this->headline ?>" class="card-link" itemprop="url">
+                <?= $GLOBALS['TL_LANG']['MSC']['more'] ?>
+            </a>
+        <?php endif; ?>
+        <?php $this->endblock() ?>
+    </div>
+</div>

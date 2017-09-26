@@ -1,0 +1,6 @@
+.idea/
+.tx/
+vendor/
+module/.skip
+composer.lock
+build.properties
