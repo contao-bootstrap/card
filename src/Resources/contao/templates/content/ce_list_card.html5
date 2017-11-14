@@ -1,0 +1,32 @@
+<div class="card <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+    <?php $this->block('before') ?>
+    <?php if ($this->addImage && $this->addBefore): ?>
+        <div class="card-img-top">
+            <?php $this->insert('image', $this->arrData); ?>
+        </div>
+    <?php endif; ?>
+    <?php $this->endblock() ?>
+
+    <?php if ($this->headline): ?>
+    <div class="card-body">
+        <?php $this->block('title') ?>
+        <<?= $this->hl ?> class="card-title"><?= $this->headline ?></<?= $this->hl ?>>
+    <?php $this->endblock() ?>
+    <?php endif; ?>
+    </div>
+
+    <?php $this->block('content') ?>
+    <<?= $this->tag ?> class="list-group list-group-flush">
+    <?php foreach ($this->items as $item): ?>
+        <li class="list-group-item<?php if ($item['class']): ?> <?= $item['class'] ?><?php endif; ?>"><?= $item['content'] ?></li>
+    <?php endforeach; ?>
+</<?= $this->tag ?>>    <?php $this->endblock() ?>
+
+<?php $this->block('before') ?>
+<?php if ($this->addImage && !$this->addBefore): ?>
+    <div class="card-img-bottom">
+        <?php $this->insert('image', $this->arrData); ?>
+    </div>
+<?php endif; ?>
+<?php $this->endblock() ?>
+</div>

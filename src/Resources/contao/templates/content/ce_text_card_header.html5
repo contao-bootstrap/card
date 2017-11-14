@@ -1,0 +1,29 @@
+<div class="card <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+    <?php $this->block('header') ?>
+    <?php if ($this->headline): ?>
+    <<?= $this->hl ?> class="h6 card-header"><?= $this->headline ?></<?= $this->hl ?>>
+    <?php endif; ?>
+    <?php $this->endblock() ?>
+
+    <?php $this->block('before') ?>
+    <?php if ($this->addImage && $this->addBefore): ?>
+        <div class="card-img-top">
+            <?php $this->insert('image', $this->arrData); ?>
+        </div>
+    <?php endif; ?>
+    <?php $this->endblock() ?>
+
+    <div class="card-body">
+        <?php $this->block('content') ?>
+        <?= str_replace('<p>', '<p class="card-text">', $this->text) ?>
+        <?php $this->endblock() ?>
+    </div>
+
+    <?php $this->block('before') ?>
+    <?php if ($this->addImage && !$this->addBefore): ?>
+        <div class="card-img-bottom">
+            <?php $this->insert('image', $this->arrData); ?>
+        </div>
+    <?php endif; ?>
+    <?php $this->endblock() ?>
+</div>
