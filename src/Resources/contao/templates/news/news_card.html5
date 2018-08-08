@@ -1,4 +1,4 @@
-<div class="card layout_latest arc_$this->archive->id ?> block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
+<div class="card layout_latest arc_<?= $this->archive->id ?> block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
 
     <?php $this->block('image') ?>
     <?php if ($this->addImage): ?>
